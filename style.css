@@ -1,0 +1,202 @@
+/* my reset css */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* my styling starts here */
+
+body {
+    background:darkblue;
+    font-family: sans-serif;
+}
+
+.responsive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 750px;
+    height: 500px;
+    display: flex;
+}
+
+.box {
+    position: relative;
+    width: 250px;
+    height: 500px;
+    background: #ccc;
+    transition: 0.5s;
+}
+
+.box:hover {
+    transform: scale(1.1);
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 1);
+}
+
+.image {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+} 
+
+.box:nth-child(odd) .image{
+    bottom: 0;
+    left: 0;
+} 
+
+.box:nth-child(even) .details {
+    bottom: 0;
+    left: 0;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+}
+
+.details {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: #262626;
+}
+
+.container .box .details .text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.text .fas,
+.text .far {
+    font-size: 80px;
+    color: yellow;
+    text-shadow: 3px 3px 3px black;
+}
+
+
+.text a {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px;
+    color: #fff;
+    transition: 0.5s;
+    border-radius: 10px;
+    font-size: 28px;
+}
+
+.box .details .text a:hover {
+    background: #fff;
+    color: royalblue;
+    font-weight: bold;
+}
+
+.box:nth-child(odd) .details {
+    background: lightskyblue;
+}
+
+.box:nth-child(even) .details {
+    background: lightsalmon;
+}
+
+
+/* ********Overlay********** */
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+  }
+.news {
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .box:nth-child(1) h2,
+  .box:nth-child(2) h2{
+      color: crimson;
+  }
+
+  .box:nth-of-type(3) h2 {
+      color: blue;
+  }
+
+  .image:hover .overlay {
+    opacity: 1;
+  }
+
+  .image:hover img {
+    opacity: 0.2;
+  }
+/* ****************** */
+
+@media (max-width: 1000px) {
+    .container {
+        height: auto;
+        padding: 20px;
+    }
+    .container .box {
+        height: 250px;
+    }
+    .container .box .image {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: initial;
+        width: 100%;
+    }
+    .container .box {
+        width: 50%;
+        height: 250px;
+        float: left;
+    }
+
+    .box:nth-child(3) .details {
+        background: greenyellow;
+    }
+    .box:nth-child(3) {
+        margin-left: 25%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        top: 0;
+        left: 0;
+        transform: translate(0);
+    }
+    .container .box {
+        width: 100%;
+        height: 250px;
+        float: none;
+        margin-left: 0;
+    }
+}
